@@ -7,7 +7,7 @@ class News(models.Model):
     description = models.TextField(max_length=10000000000000000000000)
     url = models.URLField()
     date = models.CharField(max_length=255)
-    image_url = models.CharField(max_length=500)
+    url_image = models.TextField(max_length=500)
     source = models.CharField(max_length=255)
     last_updated = models.CharField(max_length=255)
     
