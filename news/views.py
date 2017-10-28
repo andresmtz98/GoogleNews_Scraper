@@ -52,7 +52,7 @@ def search_news(list_news, query):
                     new.url = article.url
                     new.url_image = article.top_image
                     new.date = article.publish_date
-                    new.last_updated = fecha_publicacion
+                    new.latest_updated = fecha_publicacion
                     list_news.append(new)
                 except ArticleException:
                     continue
