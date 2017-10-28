@@ -9,7 +9,7 @@ class News(models.Model):
     date = models.CharField(max_length=255)
     url_image = models.TextField(max_length=500)
     source = models.CharField(max_length=255)
-    last_updated = models.CharField(max_length=255)
+    latest_updated = models.CharField(max_length=255) #Ultima fecha en que se actualizó
     
 
     def __str__(self):
