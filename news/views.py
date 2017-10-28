@@ -50,7 +50,7 @@ def search_news(list_news, query):
                     new.title = article.title
                     new.description = article.text
                     new.url = article.url
-                    new.image_url = article.top_image
+                    new.url_image = article.top_image
                     new.date = article.publish_date
                     new.last_updated = fecha_publicacion
                     list_news.append(new)
