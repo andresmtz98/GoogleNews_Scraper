@@ -81,8 +81,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'google_news_scrapper', 
         'USER': 'admin_gnews',
-        'PASSWORD': 'prestige'#,
-        #'PORT': '5434'
+        'PASSWORD': 'prestige',
+        'PORT': '5432'
     }
 }
 
