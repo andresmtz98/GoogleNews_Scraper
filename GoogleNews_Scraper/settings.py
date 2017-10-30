@@ -82,6 +82,7 @@ DATABASES = {
         'NAME': 'google_news_scrapper', 
         'USER': 'admin_gnews',
         'PASSWORD': 'prestige',
+        'HOST': 'localhost',
         'PORT': '5432'
     }
 }
