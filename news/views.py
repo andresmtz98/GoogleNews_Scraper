@@ -66,7 +66,7 @@ def index(request):
     if request.method == "POST":
         query = request.POST.get('query',None)
         news = search_news([], query)
-        
+        print("Hello Moto")
         template = loader.get_template('index.html')
         context = {
             'news': news
