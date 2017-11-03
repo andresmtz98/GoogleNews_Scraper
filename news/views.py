@@ -7,7 +7,7 @@ import requests
 from bs4 import BeautifulSoup
 from newspaper import Article
 from newspaper.article import ArticleException
-
+import time
 
 
 
@@ -30,12 +30,13 @@ def search_news(list_news, query):
     check = True
     while(check):
         url = "https://www.google.com.co/search?q=%s&tbs=sbd:1,qdr:d&tbm=nws&start=%s" % (query, index)
+        time.sleep(2)
         req = requests.get(url)
         if req.status_code == 200:
-            print(url)
             html = BeautifulSoup(req.text, 'html.parser')
             entradas = html.find_all('h3', {'class': 'r'})
             fechas_publicacion = html.find_all('span', {'class': 'f'})
+            print(url)
             for i, ent in enumerate(entradas):
                 urlNew = ent.a['href']
                 urlNew = urlNew[7:len(urlNew)]
