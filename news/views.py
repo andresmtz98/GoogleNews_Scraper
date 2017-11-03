@@ -36,7 +36,6 @@ def search_news(list_news, query):
             entradas = html.find_all('h3', {'class': 'r'})
             fechas_publicacion = html.find_all('span', {'class': 'f'})
             for i, ent in enumerate(entradas):
-                print(url)
                 urlNew = ent.a['href']
                 urlNew = urlNew[7:len(urlNew)]
                 urlNew.capitalize()
@@ -68,6 +67,7 @@ def index(request):
         query = request.GET.get('query',None)
         news = search_news([], query)
         template = loader.get_template('index.html')
+        print(news)
         context = {
             'news': news
         }
