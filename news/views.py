@@ -32,7 +32,6 @@ def search_news(list_news, query):
         url = "https://www.google.com.co/search?q=%s&tbs=sbd:1,qdr:d&tbm=nws&start=%s" % (query, index)
         req = requests.get(url)
         if req.status_code == 200:
-            print("Hello Moto2")
             html = BeautifulSoup(req.text, 'html.parser')
             entradas = html.find_all('h3', {'class': 'r'})
             fechas_publicacion = html.find_all('span', {'class': 'f'})
@@ -44,6 +43,7 @@ def search_news(list_news, query):
                 article = Article(urlNew, language='es')
                 try:
                     article.download()
+                    print(urlNew)
                     article.parse()
                     fecha_publicacion,  check = getFechaPublicacion(
                         fechas_publicacion[i].text)
