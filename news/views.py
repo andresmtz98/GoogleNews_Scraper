@@ -29,6 +29,8 @@ def search_news(list_news, query):
     index = 0
     check = True
     while(check):
+        if index > 10:
+            return list_news
         url = "https://www.google.com.co/search?q=%s&tbs=sbd:1,qdr:d&tbm=nws&start=%s" % (query, index)
         req = requests.get(url)
         if req.status_code == 200:
@@ -54,20 +56,18 @@ def search_news(list_news, query):
                     new.date = article.publish_date
                     new.latest_updated = fecha_publicacion
                     list_news.append(new)
+                    print(new)
                 except ArticleException:
                     continue
         else:
             print(req.status_code)
         index += 10
-        if index > 10:
-            return list_news
-
+        
 def index(request):
     if request.method == "GET" and request.GET.get('query',None) is not None:
         query = request.GET.get('query',None)
         news = search_news([], query)
         template = loader.get_template('index.html')
-        print(news)
         context = {
             'news': news
         }
