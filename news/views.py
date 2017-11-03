@@ -32,7 +32,7 @@ def search_news(list_news, query):
         url = "https://www.google.com.co/search?q=%s&tbs=sbd:1,qdr:d&tbm=nws&start=%s" % (query, index)
         req = requests.get(url)
         if req.status_code == 200:
-            print(url + "\n" + req.status_code)
+            print(url)
             html = BeautifulSoup(req.text, 'html.parser')
             entradas = html.find_all('h3', {'class': 'r'})
             fechas_publicacion = html.find_all('span', {'class': 'f'})
