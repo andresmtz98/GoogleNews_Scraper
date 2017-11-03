@@ -71,8 +71,8 @@ def index(request):
         context = {
             'news': news
         }
-        return HttpResponse(template.render(context, request))
+        return render(request, "index.html", context)
     else:
         template = loader.get_template('index.html')
         context = {}
-        return HttpResponse(template.render(context, request))
+        return render(request, "index.html", context)
