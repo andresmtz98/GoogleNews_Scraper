@@ -32,6 +32,7 @@ def search_news(list_news, query):
         url = "https://www.google.com.co/search?q=%s&tbs=sbd:1,qdr:d&tbm=nws&start=%s" % (query, index)
         req = requests.get(url)
         if req.status_code == 200:
+            print(url + "\n" + req.status_code)
             html = BeautifulSoup(req.text, 'html.parser')
             entradas = html.find_all('h3', {'class': 'r'})
             fechas_publicacion = html.find_all('span', {'class': 'f'})
@@ -41,7 +42,6 @@ def search_news(list_news, query):
                 urlNew.capitalize()
                 urlNew = urlNew[0:urlNew.find("&")]
                 article = Article(urlNew, language='es')
-                print(urlNew)
                 try:
                     article.download()
                     article.parse()
