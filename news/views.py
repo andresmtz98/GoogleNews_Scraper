@@ -43,7 +43,6 @@ def search_news(list_news, query):
                 article = Article(urlNew, language='es')
                 try:
                     article.download()
-                    print(urlNew)
                     article.parse()
                     fecha_publicacion,  check = getFechaPublicacion(
                         fechas_publicacion[i].text)
@@ -67,6 +66,7 @@ def index(request):
     if request.method == "POST":
         query = request.POST.get('query',None)
         news = search_news([], query)
+        print(query)
         template = loader.get_template('index.html')
         context = {
             'news': news
