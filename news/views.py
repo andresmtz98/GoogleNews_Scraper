@@ -63,8 +63,8 @@ def search_news(list_news, query):
             return list_news
 
 def index(request):
-    if request.method == "POST":
-        query = request.POST.get('query',None)
+    if request.method == "GET" and request.GET.get('query',None) is not None:
+        query = request.GET.get('query',None)
         news = search_news([], query)
         print(query)
         template = loader.get_template('index.html')
