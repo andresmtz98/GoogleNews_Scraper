@@ -31,7 +31,7 @@ def search_news(list_news, query):
     while(check):
         if index > 10:
             return list_news
-        url = "https://www.google.com.br/search?q=%s&tbs=sbd:1,qdr:d&tbm=nws&start=%s" % (query, index)
+        url = "https://www.google.com.co/search?q=%s&tbs=sbd:1,qdr:d&tbm=nws&start=%s" % (query, index)
         req = requests.get(url)
         if req.status_code == 200:
             html = BeautifulSoup(req.text, 'html.parser')
